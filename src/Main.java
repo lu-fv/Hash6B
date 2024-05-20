@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.*;
 import java.util.HashMap;
@@ -6,16 +6,18 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.List;
 import java.util.stream.Collectors;
-
+import java.util.TreeSet;
+import java.util.Collections;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        Ejercicio2();
+      //  Ejercicio2();
         // Ejercicio1();
         //  Ejercicio3();
-        Ejercicio4();
+       // Ejercicio4();
+        Ejercicio5();
 
     }
 
@@ -66,6 +68,18 @@ public class Main {
 
         num.ShowFrecuency(frecuencyMap);
 
+
+    }
+    public static void Ejercicio5() {
+       // OrderAsyDes orderAsyDes = new OrderAsyDes();
+        List <Integer> orderToNumbers =OrderAsyDes.getNumbers();
+        TreeSet<Integer> orderNumbers =new TreeSet<>(orderToNumbers);
+                OrderAsyDes.AscendingOrder(orderNumbers);
+
+       System.out.println("Números en orden ascendente: " + orderNumbers );
+
+       List <Integer> dsNumbers = OrderAsyDes.DescendingOrder(orderNumbers);
+        System.out.println("Números en orden descendente: " + dsNumbers );
 
     }
 
