@@ -8,16 +8,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.TreeSet;
 import java.util.Collections;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-      //  Ejercicio2();
+        //  Ejercicio2();
         // Ejercicio1();
         //  Ejercicio3();
-       // Ejercicio4();
-        Ejercicio5();
+        // Ejercicio4();
+        //Ejercicio5();
+        Ejercicio6();
 
     }
 
@@ -70,17 +72,48 @@ public class Main {
 
 
     }
+
     public static void Ejercicio5() {
-       // OrderAsyDes orderAsyDes = new OrderAsyDes();
-        List <Integer> orderToNumbers =OrderAsyDes.getNumbers();
-        TreeSet<Integer> orderNumbers =new TreeSet<>(orderToNumbers);
-                OrderAsyDes.AscendingOrder(orderNumbers);
+        // OrderAsyDes orderAsyDes = new OrderAsyDes();
+        List<Integer> orderToNumbers = OrderAsyDes.getNumbers();
+        TreeSet<Integer> orderNumbers = new TreeSet<>(orderToNumbers);
+        OrderAsyDes.AscendingOrder(orderNumbers);
 
-       System.out.println("Números en orden ascendente: " + orderNumbers );
+        System.out.println("Números en orden ascendente: " + orderNumbers);
 
-       List <Integer> dsNumbers = OrderAsyDes.DescendingOrder(orderNumbers);
-        System.out.println("Números en orden descendente: " + dsNumbers );
+        List<Integer> dsNumbers = OrderAsyDes.DescendingOrder(orderNumbers);
+        System.out.println("Números en orden descendente: " + dsNumbers);
 
+    }
+
+    public static void Ejercicio6() {
+
+        ABM manejoPersonas = new ABM();
+
+        manejoPersonas.Alta(new Person(" Lucia", 30, 23698444));
+        manejoPersonas.Alta(new Person(" Ale", 29, 33584111));
+        manejoPersonas.Alta(new Person(" Manu", 23, 36005610));
+        manejoPersonas.Alta(new Person(" Sol", 25, 30145338));
+
+        manejoPersonas.Modifica(23698444, "Lucas", 31);
+
+
+        manejoPersonas.AddPerson(new Person("Franco", 60, 11133346));
+
+        List<Person> list = Arrays.asList(
+                new Person("Daniel", 40, 29265162),
+                new Person("Ramon", 20, 40899746)
+        );
+        manejoPersonas.AddPersonList(list);
+        manejoPersonas.ShowPeople();
+
+        manejoPersonas.Baja(30145338);
+
+        List<Person> listByAge = manejoPersonas.OrderByAge();
+        System.out.println("\n Lista ordenada por edad: ");
+        for (Person p : listByAge) {
+            System.out.println(p);
+        }
     }
 
 }
